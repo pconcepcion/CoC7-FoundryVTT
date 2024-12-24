@@ -1,0 +1,11 @@
+<!-- Character Characteristics -->
+<div class="character-attributes characteristics-grid">
+  <div class="attributes-top-line"></div>
+  {{#each actor.characteristics as |characteristic key|}}
+  <div class="char-box attribute characteristic-{{key}}" data-characteristic="{{key}}" draggable="true">
+    <label class="charac-name characteristic-label rollable attribute-label" draggable="true">{{characteristic.shortName}}</label>
+    <input class="characteristic-score attribute-value" type="text" name="system.characteristics.{{key}}.value" value="{{characteristic.value}}" data-dtype="Number" />
+  </div>
+  {{/each}}
+  <div class="attributes-bottom-line"></div>
+</div>
