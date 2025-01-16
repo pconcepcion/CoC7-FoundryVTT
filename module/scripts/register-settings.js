@@ -6,25 +6,6 @@ import { CoC7GameRuleSettings } from './game-rules.js'
 import { CoC7DirectoryPicker } from './coc7-directory-picker.js'
 
 export function registerSettings () {
-  game.settings.register('CoC7', 'noNewFonts', {
-    name: 'No new fonts',
-    hint: 'Substitute MinionPro-Regular.otf and piranesi.ttf with Lusitana',
-    scope: 'world',
-    config: true,
-    type: Boolean,
-    default: false,
-    onChange: (boolean) => {
-      if (boolean) {
-        $('body').addClass('no-new-fonts')
-      } else {
-        $('body').removeClass('no-new-fonts')
-      }
-    }
-  })
-  if (game.settings.get('CoC7', 'noNewFonts')) {
-    $('body').addClass('no-new-fonts')
-  }
-
   /**
    * Rules
    */
