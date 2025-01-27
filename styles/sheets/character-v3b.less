@@ -1,10 +1,10 @@
 :root {
   --official-coc-label-color: #922d2e;
   --base-points-color: #ebd5a0;
-  --development-points-color: #a0e888;
-  --occupation-points-color: #94a4dd;
-  --archetype-points-color: #c789d8;
-  --experience-points-color: #bfd16f;
+  --development-points-color: #922d2e;
+  --occupation-points-color: #101345;
+  --archetype-points-color: #79501c;
+  --experience-points-color: #2e4b1f;
 }
 
 .sheetV3b.window-app {
@@ -690,6 +690,7 @@
                   line-height: 1.5rem;
                   text-align: center;
                   margin-bottom: 2px;
+                  color: #fff;
 
                   &.warning {
                     border: 1px solid red;
@@ -708,13 +709,12 @@
                       width: 100%;
                       height: 100%;
                       cursor: pointer;
-                      font-family: Voltaire;
+                      font-family: 'Noto Sans';
                     }
                   }
 
                   label {
-                    color: #6E1417;
-                    font-family: Voltaire;
+                    font-family: 'Noto Sans';
                   }
 
                   div {
@@ -722,7 +722,19 @@
 
                     input {
                       width: 2rem;
+                      color: #fff;
                       display: inline-block;
+                    }
+                  }
+                }
+
+                ol.skills-list {
+                  .skill-name.rollable.flagged4dev {
+                    color: var(--experience-points-color);
+                    font-weight: bold;
+
+                    i.fas.fa-circle-check {
+                      margin-left: 0.4rem;
                     }
                   }
                 }
@@ -841,11 +853,11 @@
                     input {
                       height: 1rem;
                       line-height: 1rem;
-                      padding: 0 1px;
+                      padding: 1px 3px;
                       margin: 0;
                       font-size: 0.8rem;
                       text-align: right;
-                      color: var(--main-sheet-front-color);
+                      color: #fff;
                       border: 0;
                     }
                   }

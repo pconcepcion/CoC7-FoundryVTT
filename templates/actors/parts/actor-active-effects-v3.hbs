@@ -3,17 +3,21 @@
 <ol class="items-list effects-list">
   {{#each effects as |section sid|}}
   {{#unless section.hidden}}
-  <li class="items-header flexrow" data-effect-type="{{section.type}}">
+  <div class="active-effects-title-bar">
     <h3 class="item-name effect-name flexrow">{{localize section.label}}</h3>
-    <div class="effect-source">{{localize "CoC7.Source"}}</div>
-    <div class="effect-source">{{localize "CoC7.Duration"}}</div>
-    <div class="item-controls effect-controls flexrow">
-      {{#if @root.editable}}
+   {{#if @root.editable}}
+    <div class="add-button">
       <a class="effect-control" data-action="create" title="{{localize 'CoC7.Create'}}">
         <i class="fas fa-plus"></i> {{localize "CoC7.Add"}}
       </a>
-      {{/if}}
     </div>
+    {{/if}}
+  </div>
+  <li class="items-header flexrow" data-effect-type="{{section.type}}">
+    <div class="effect-source">{{localize "CoC7.Name"}}</div>
+    <div class="effect-source">{{localize "CoC7.Source"}}</div>
+    <div class="effect-source">{{localize "CoC7.Duration"}}</div>
+    <div class="effect-source effect-controls">{{localize "CoC7.Controls"}}</div>
   </li>
 
   {{#if section.info}}
