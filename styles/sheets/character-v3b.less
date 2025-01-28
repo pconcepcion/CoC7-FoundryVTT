@@ -1,6 +1,6 @@
 :root {
   --official-coc-label-color: #922d2e;
-  --base-points-color: #ebd5a0;
+  --base-points-color: #922d2e;
   --development-points-color: #922d2e;
   --occupation-points-color: #101345;
   --archetype-points-color: #79501c;
@@ -369,7 +369,6 @@
                         'mainScore halfScore'
                         'mainScore fithScore';
                       margin: 0 0.5rem 0.3rem;
-                      background: rgba(255, 255, 255, 0.5);
                       padding: 0 0.3rem;
                       border-radius: 0.3rem;
 
@@ -382,11 +381,16 @@
                         align-self: center;
                       }
 
+                      &:hover .part-detail-value {
+                        visibility: visible;
+                      }
+
                       .part-detail-value {
                         font-size: 0.6rem;
                         justify-self: center;
                         align-self: center;
                         font-weight: bold;
+                        visibility: hidden;
 
                         &.half-score {
                           grid-area: halfScore;
@@ -489,6 +493,7 @@
 
                 .derived-attributes-box {
                   background: rgba(0, 0, 0, 0.08);
+                  font-size: 1rem;
 
                   .derived-attribute {
                     padding: 0.2rem 0.2rem;
@@ -655,30 +660,36 @@
                 .skill-points,
                 .experience {
                   text-align: center;
+                  color: #fff;
                 }
 
                 .header-section.development-points,
                 .adjustment-value.development-points {
                   background-color: var(--development-points-color);
+                  color: #fff;
                 }
 
                 .header-section.occupation-points,
                 .adjustment-value.occupation-points {
                   background-color: var(--occupation-points-color);
+                  color: #fff;
                 }
 
                 .header-section.archetype-points,
                 .adjustment-value.archetype-points {
                   background-color: var(--archetype-points-color);
+                  color: #fff;
                 }
 
                 .header-section.experience-points,
                 .adjustment-value.experience-points {
                   background-color: var(--experience-points-color);
+                  color: #fff;
                 }
 
                 .adjustment-value.base-points {
                   background-color: var(--base-points-color);
+                  color: #fff;
                 }
 
                 .header-section {
@@ -690,7 +701,6 @@
                   line-height: 1.5rem;
                   text-align: center;
                   margin-bottom: 2px;
-                  color: #fff;
 
                   &.warning {
                     border: 1px solid red;
@@ -709,12 +719,13 @@
                       width: 100%;
                       height: 100%;
                       cursor: pointer;
-                      font-family: 'Noto Sans';
+                      font-family: Voltaire;
                     }
                   }
 
                   label {
-                    font-family: 'Noto Sans';
+                    color: #fff;
+                    font-family: Voltaire;
                   }
 
                   div {
@@ -722,19 +733,8 @@
 
                     input {
                       width: 2rem;
-                      color: #fff;
                       display: inline-block;
-                    }
-                  }
-                }
-
-                ol.skills-list {
-                  .skill-name.rollable.flagged4dev {
-                    color: var(--experience-points-color);
-                    font-weight: bold;
-
-                    i.fas.fa-circle-check {
-                      margin-left: 0.4rem;
+                      color: #fff;
                     }
                   }
                 }
@@ -826,7 +826,7 @@
                 padding: 0;
                 list-style-type: none;
                 margin: 1rem auto;
-                width: 30rem;
+                /* width: 30rem; */
 
                 li.item {
                   color: var(--main-sheet-front-color);
@@ -841,6 +841,18 @@
                     grid-template-columns: 1.875rem auto 1.3rem 1.3rem 1.3rem 1.3rem 1.3rem 1.3rem;
                   }
 
+                  span.flagged4dev {
+                    color: var(--experience-points-color);
+
+                    &:after {
+                      color: var(--experience-points-color);
+                      content: " \f058";
+                      font-family: 'Font Awesome 6 Pro';
+                      font-weight: 900;
+                      margin-left: 5px;
+                    }
+                  }
+
                   .adjustment-value {
                     border-right: 1px solid var(--main-sheet-front-color);
                     text-align: right;
@@ -853,12 +865,19 @@
                     input {
                       height: 1rem;
                       line-height: 1rem;
-                      padding: 1px 3px;
+                      padding: 0 1px;
                       margin: 0;
                       font-size: 0.8rem;
                       text-align: right;
-                      color: #fff;
+                      color: var(--main-sheet-front-color);
                       border: 0;
+                    }
+
+                    &.development-points input,
+                    &.occupation-points input,
+                    &.archetype-points input,
+                    &.experience-points input {
+                      color: #fff;
                     }
                   }
                 }
@@ -950,8 +969,9 @@
                     margin: 2px 0;
                     padding: 0.2rem;
                     background: rgba(0, 0, 0, 0.05);
-                    border: 2px groove #eeede0;
+                    border: none;
                     font-weight: bold;
+                    border-bottom: 2px solid var(--main-sheet-back-color);
                   }
 
                   &.item {
@@ -966,7 +986,8 @@
                   h3 {
                     border: 0;
                     margin: 0;
-                    text-transform: none;
+                    text-transform: uppercase;
+                    color: var(--main-sheet-interactive-color);
                   }
 
                   h4 {
@@ -995,6 +1016,10 @@
                 &.prosemirror {
                   min-height: 20rem;
                 }
+              }
+
+              .editor:hover {
+                box-shadow: 0 0 3px var(--main-sheet-back-color);
               }
 
               .combat-panel,
