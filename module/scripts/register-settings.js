@@ -293,6 +293,13 @@ export function registerSettings () {
     default: 1500,
     type: Number
   })
+  game.settings.register('CoC7', 'hidePartValues', {
+    name: 'SETTINGS.hidePartValues',
+    scope: 'world',
+    config: true,
+    default: false,
+    type: Boolean
+  })
   game.settings.register('CoC7', 'showIconsOnly', {
     name: 'SETTINGS.showIconsOnly',
     scope: 'world',

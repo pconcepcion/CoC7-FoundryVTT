@@ -13,7 +13,7 @@
   <h3 class="warning no-skills-warning">{{localize 'CoC7.EmptyCharacterSkillList'}}</h3>
 {{/if}}
 
-<ol class="item-list">
+<ol class="item-list{{#if showPartValues}} show-part-values{{/if}}">
   {{#if skillListModeValue}}
     {{#each skillsByValue as |skill|}}
       <li class="item itemV2 skill flexrow" data-skill-id="{{skill._id}}" data-item-id="{{skill._id}}">

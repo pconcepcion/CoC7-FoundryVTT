@@ -1,4 +1,4 @@
-/* global foundry TextEditor */
+/* global foundry game TextEditor */
 import { CoC7CharacterSheet } from './character.js'
 
 export class CoC7CharacterSheetV3b extends CoC7CharacterSheet {
@@ -35,7 +35,8 @@ export class CoC7CharacterSheetV3b extends CoC7CharacterSheet {
       sheetData.biographySections[0].isFirst = true
       sheetData.biographySections[sheetData.biographySections.length - 1].isLast = true
     }
-    // sheetData.hasInventory = false
+
+    sheetData.showPartValues = !game.settings.get('CoC7', 'hidePartValues')
 
     return sheetData
   }

@@ -64,7 +64,7 @@
             transform: scale(1.2);
             transition-timing-function: cubic-bezier(0.2, 0.4, 0.7, 0.8);
             transition-duration: 0.1s;
-            bottom:-6px;
+            bottom: -6px;
           }
 
           &.tab-blue {
@@ -128,10 +128,12 @@
               transform: scale(1.3);
               transition-timing-function: cubic-bezier(0.2, 0.4, 0.7, 0.8);
               transition-duration: 0.1s;
+
               .tab-label {
                 font-size: 2rem;
               }
             }
+
             .tab-label {
               margin-top: -10px;
               font-size: 1.8rem;
@@ -345,6 +347,16 @@
                 overflow: hidden;
                 margin-bottom: 0.3rem;
                 .flexcol();
+
+                &.show-part-values {
+                  .characteristics-grid .char-box .char-box-values {
+                    background: rgba(255, 255, 255, 0.5);
+
+                    .part-detail-value {
+                      visibility: visible;
+                    }
+                  }
+                }
 
                 .attributes-top-line {
                   background-image: var(--investigator-sheet-red-line);
@@ -886,6 +898,12 @@
                 column-count: 2;
                 padding: 0;
 
+                &.show-part-values {
+                  li.item .skill-calc {
+                    display: block;
+                  }
+                }
+
                 li.specialization-header {
                   font-weight: bold;
                 }
@@ -904,6 +922,7 @@
                     transition-timing-function: cubic-bezier(0.2, 0.4, 0.7, 0.8);
                     transition-duration: 0.2s;
                   }
+
                   .item-image {
                     background-color: rgba(0, 0, 0, 0.15);
                     background-size: 20px;
@@ -932,9 +951,10 @@
                     text-align: right;
                   }
 
-                  &.skill:hover .skill-calc{
+                  &.skill:hover .skill-calc {
                     display: block;
                   }
+
                   .skill-calc {
                     flex: 0 0 3rem;
                     text-align: left;
