@@ -290,7 +290,7 @@ export function registerSettings () {
     name: 'CoC7.toolTipDelay',
     scope: 'world',
     config: true,
-    default: 2000,
+    default: 1500,
     type: Number
   })
   game.settings.register('CoC7', 'showIconsOnly', {

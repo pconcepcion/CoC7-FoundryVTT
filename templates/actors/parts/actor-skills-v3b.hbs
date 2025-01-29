@@ -1,13 +1,13 @@
 <div class="flexrow">
-<div class="header-buttons"></div>
-<h2>{{localize 'CoC7.Skills'}}</h2>
-<div class="header-buttons">
-  {{#unless data.system.flags.locked}}
-    <a class="add-item" data-type="skill" title='{{localize "CoC7.AddSkill"}}'><i class="fas fa-plus"></i></a>
-  {{/unless}}
-  <a class="toggle-list-mode" title='{{#if skillListModeValue}}{{localize "CoC7.SortBySkillName"}}{{else}}{{localize "CoC7.SortBySkillValue"}}{{/if}}'><i class="fas {{#if skillListModeValue}}fa-sort-alpha-down{{else}}fa-sort-amount-down{{/if}}"></i></a>
-  <a class="toggle-uncommon-mode" title='{{#if skillShowUncommon}}{{localize "CoC7.UncommonSkillsShow"}}{{else}}{{localize "CoC7.UncommonSkillsHide"}}{{/if}}'><i class="fas {{#if skillShowUncommon}}fa-toggle-on{{else}}fa-toggle-off{{/if}}"></i></a>
-</div>
+  <div class="header-buttons"></div>
+  <h2>{{localize 'CoC7.Skills'}}</h2>
+  <div class="header-buttons">
+    {{#unless data.system.flags.locked}}
+      <a class="add-item" data-type="skill" title='{{localize "CoC7.AddSkill"}}'><i class="fas fa-plus"></i></a>
+    {{/unless}}
+    <a class="toggle-list-mode" title='{{#if skillListModeValue}}{{localize "CoC7.SortBySkillName"}}{{else}}{{localize "CoC7.SortBySkillValue"}}{{/if}}'><i class="fas {{#if skillListModeValue}}fa-sort-alpha-down{{else}}fa-sort-amount-down{{/if}}"></i></a>
+    <a class="toggle-uncommon-mode" title='{{#if skillShowUncommon}}{{localize "CoC7.UncommonSkillsShow"}}{{else}}{{localize "CoC7.UncommonSkillsHide"}}{{/if}}'><i class="fas {{#if skillShowUncommon}}fa-toggle-on{{else}}fa-toggle-off{{/if}}"></i></a>
+  </div>
 </div>
 {{#if skillListEmpty}}
   <h3 class="warning no-skills-warning">{{localize 'CoC7.EmptyCharacterSkillList'}}</h3>
@@ -22,11 +22,13 @@
         <div class="skill-value item-score">{{skill.system.value}}</div>
         <div class="skill-calc">({{calcHard skill.system.value 2}}/{{calcExtreme skill.system.value 1}})</div>
         <div class="skill-icons flex2">
-          {{#if skill.system.flags.developement}}
-            <a class="item-control development-flag active icon-upgrade" title="{{localize 'CoC7.SkillUnflagForDevelopement'}}"><i class="fas fa-circle-check"></i></a>
-          {{else}}
-            <a class="item-control development-flag icon-info" title="{{localize 'CoC7.SkillFlagForDevelopement'}}"><i class="fa-light fa-circle"></i></a>
-          {{/if}}
+          {{#unless skill.system.properties.noxpgain}}
+            {{#if skill.system.flags.developement}}
+              <a class="item-control development-flag active icon-upgrade"><i class="fas fa-circle-check"></i></a>
+            {{else}}
+              <a class="item-control development-flag icon-info"><i class="fa-light fa-circle"></i></a>
+            {{/if}}
+          {{/unless}}
           <a class="item-control item-popup icon-info" title="{{localize 'CoC7.SkillDetail'}}"><i class="fas fa-info-circle"></i></a>
         </div>
       </li>
@@ -43,11 +45,13 @@
             <div class="skill-value item-score">{{skill.system.value}}</div>
             <div class="skill-calc">({{calcHard skill.system.value 2}}/{{calcExtreme skill.system.value 1}})</div>
             <div class="skill-icons">
-              {{#if skill.system.flags.developement}}
-                <a class="item-control development-flag active icon-upgrade" title="{{localize 'CoC7.SkillUnflagForDevelopement'}}"><i class="fas fa-circle-check"></i></a>
-              {{else}}
-                <a class="item-control development-flag icon-info" title="{{localize 'CoC7.SkillFlagForDevelopement'}}"><i class="fa-light fa-circle"></i></a>
-              {{/if}}
+              {{#unless skill.system.properties.noxpgain}}
+                {{#if skill.system.flags.developement}}
+                  <a class="item-control development-flag active icon-upgrade"><i class="fas fa-circle-check"></i></a>
+                {{else}}
+                  <a class="item-control development-flag icon-info"><i class="fa-light fa-circle"></i></a>
+                {{/if}}
+              {{/unless}}
               <a class="item-control item-popup" title="{{localize 'CoC7.SkillDetail'}}"><i class="fas fa-info-circle"></i></a>
             </div>
           {{else}}
